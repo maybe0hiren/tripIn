@@ -1,4 +1,3 @@
-Member 1:
-	Name: Hiren Waghmare
-	Email id: hirenwaghmare25@gmail.com
-	Branch: CSE-AIML
+"Name: Eshwari Wasankar "  
+"Email: wasankareshwari@gmail.com"  
+"Branch: CS"  
