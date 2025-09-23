@@ -2,7 +2,7 @@ Member 1:
 	Name: Hiren Waghmare
 	Email id: hirenwaghmare25@gmail.com
 	Branch: CSE-AIML
-"Member 2:  "
-"    Name: Eshwari Wasankar"  
-"    Email id: eshwari.wasankar@gmail.com"  
-"    Branch: CS" 
+Member 2:  
+    Name: Eshwari Wasankar  
+    Email id: eshwari.wasankar@gmail.com 
+    Branch: CS
