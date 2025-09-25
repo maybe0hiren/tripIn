@@ -14,7 +14,17 @@ Member 3:
 	Email id: prachiwaghmare2206@gmail.com
 	Branch: CSE	
 
-Member 3:
+Member 4:
     Name: Ved Madurwar
 	Email id: ved.m136@gmail.com
 	Branch: CSE	
+
+Member 5:
+    Name: Pratik Yabaji
+	Email id: pratik.yabaji24@vit.edu
+	Branch: ENTC
+
+Member 5:
+    Name: Purushottam Sonawane
+	Email id: purushottam.sonawane24@vit.edu
+	Branch: ENTC
