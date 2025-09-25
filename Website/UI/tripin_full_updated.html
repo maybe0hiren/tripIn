@@ -9,6 +9,71 @@
     /* General */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body { background: #f9f9f9; color: #333; }
+    
+    /* Floating Reward Run Button */
+#reward-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #4a90e2, #ff884d);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease;
+  z-index: 1000;
+}
+
+/* Chatbot */
+#chatbot {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+}
+#chatbot-header {
+  background: linear-gradient(90deg, #4a90e2, #ff884d);
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#chatbot-input {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+#chatbot-input input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+}
+#chatbot-input button {
+  background: #4a90e2;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+}
 
     /* Navbar */
     .navbar { display: flex; justify-content: space-between; align-items: center;
@@ -134,8 +199,107 @@
 .memory-card .location { color: gray; font-size: 14px; margin-bottom: 8px; }
 .memory-card .actions { display: flex; gap: 20px; margin-top: 10px; font-size: 14px; color: gray; }
 
+/* Hero Buttons */
+.hero-buttons {
+  margin-top: 25px;
+
+  display: flex;
+  gap: 15px;
+  justify-content: center; /* align left */
+}
+.hero-buttons .btn-left {
+  background: linear-gradient(90deg, #4a90e2, #ff884d);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-buttons .btn-left:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.hero-buttons .btn-outline-left {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.hero-buttons .btn-outline-left:hover {
+  background: white;
+  color: #333;
+}
+
 </style>
 </head>
+<!-- Reward Run Button -->
+<button id="reward-btn">Chat With AI</button>
+
+<!-- Chatbot -->
+<div id="chatbot">
+  <div id="chatbot-header">
+    AI Chatbot
+    <span id="close-chat" style="cursor:pointer;">✖</span>
+  </div>
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-input">
+    <input type="text" id="chat-input" placeholder="Type a message...">
+    <button id="send-btn">Send</button>
+  </div>
+</div>
+<script>
+  const rewardBtn = document.getElementById("reward-btn");
+  const chatbot = document.getElementById("chatbot");
+  const closeChat = document.getElementById("close-chat");
+  const sendBtn = document.getElementById("send-btn");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chatbot-messages");
+
+  // Floating button follows cursor
+  document.addEventListener("mousemove", (e) => {
+    let offsetX = (e.clientX / window.innerWidth - 0.5) * 20;
+    let offsetY = (e.clientY / window.innerHeight - 0.5) * 20;
+    rewardBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+  });
+
+  // Toggle chatbot
+  rewardBtn.addEventListener("click", () => {
+    chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+  });
+  closeChat.addEventListener("click", () => {
+    chatbot.style.display = "none";
+  });
+
+  // Simple AI-like response (demo only)
+  sendBtn.addEventListener("click", sendMessage);
+  chatInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  function sendMessage() {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+    addMessage("You", msg);
+    chatInput.value = "";
+    setTimeout(() => {
+      addMessage("Bot", "🤖 I’m your travel assistant! You said: " + msg);
+    }, 800);
+  }
+
+  function addMessage(sender, text) {
+    const div = document.createElement("div");
+    div.innerHTML = `<b>${sender}:</b> ${text}`;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
 <body>
 
   <!-- Navbar -->
@@ -157,6 +321,11 @@
     <div class="hero-text">
       <h1>Discover Your Next <span>Adventure</span></h1>
       <p>Explore breathtaking destinations, connect with fellow travelers, and create memories that last a lifetime.</p>
+      <div class="hero-buttons">
+    <button class="btn-left">Reward Run</button>
+    <button class="btn-outline-left">Group Maps</button>
+  </div>
+
     </div>
     <div class="search-box">
       <input type="text" placeholder="Search destinations...">
