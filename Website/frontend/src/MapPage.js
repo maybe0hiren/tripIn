@@ -13,7 +13,7 @@ const GROUP_CODE = "ABCDEF";
 const MapPage = () => {
   const [locations, setLocations] = useState({});
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "KEY",
+    googleMapsApiKey: "AIzaSyDij-2LFH3j67AEXazVp3gK_RqydtWCp-A",
   });
 
   useEffect(() => {

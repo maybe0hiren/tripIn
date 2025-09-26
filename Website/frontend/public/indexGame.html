@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Tourist Spots Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleGame.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="game-title">🌴 Kerala Tourist Spots Adventure 🏖️</h1>
+                <div class="points-display">
+                    <span class="points-label">Total Points:</span>
+                    <span class="points-value" id="pointsValue">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Loading State -->
+            <div class="loading-screen" id="loadingScreen">
+                <div class="loading-spinner"></div>
+                <p>Getting your next adventure...</p>
+            </div>
+
+            <!-- Location Card -->
+            <div class="location-card" id="locationCard" style="display: none;">
+                <div class="card-header">
+                    <h2 class="location-title" id="locationTitle">Loading...</h2>
+                    <div class="location-points">
+                        <span id="locationPoints">0</span> points
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="ai-message" id="aiMessage">
+                        Getting location details...
+                    </div>
+                    <div class="location-info">
+                        <div class="info-item">
+                            <span class="info-label">📍 Coordinates:</span>
+                            <span class="info-value" id="locationCoords">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">📏 Check-in Radius:</span>
+                            <span class="info-value" id="locationRadius">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls Section -->
+            <div class="controls-section" id="controlsSection" style="display: none;">
+                <div class="location-controls">
+                    <button class="btn btn--primary" id="getLocationBtn">
+                        📱 Get My Location
+                    </button>
+                    <div class="manual-input" id="manualInput">
+                        <p class="input-label">Or enter coordinates manually:</p>
+                        <div class="coordinate-inputs">
+                            <input type="number" 
+                                   class="form-control coordinate-input" 
+                                   id="latInput" 
+                                   placeholder="Latitude"
+                                   step="any">
+                            <input type="number" 
+                                   class="form-control coordinate-input" 
+                                   id="lonInput" 
+                                   placeholder="Longitude"
+                                   step="any">
+                        </div>
+                    </div>
+                    <div class="current-location" id="currentLocationDisplay" style="display: none;">
+                        <p class="location-status">📍 Your location: <span id="currentCoords">-</span></p>
+                    </div>
+                    <button class="btn btn--secondary btn-check-in" id="checkInBtn" disabled>
+                        ✅ Check In
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notification Area -->
+            <div class="notification-area">
+                <div class="notification" id="notification" style="display: none;">
+                    <span class="notification-message" id="notificationMessage"></span>
+                </div>
+            </div>
+
+            <!-- Game Complete Screen -->
+            <div class="game-complete" id="gameComplete" style="display: none;">
+                <div class="celebration">
+                    <h2>🎉 Congratulations! 🎉</h2>
+                    <p class="completion-message">You've visited all Kerala tourist spots!</p>
+                    <p class="final-score">Final Score: <span id="finalScore">0</span> points</p>
+                    <button class="btn btn--primary" id="restartBtn">Start New Adventure</button>
+                </div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-info">
+                    <h3>🗺️ Your Journey</h3>
+                    <div class="visited-locations">
+                        <span class="progress-text">Visited: <span id="visitedCount">0</span> / <span id="totalCount">6</span> locations</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🌟 Explore the beauty of Kerala! 🌟</p>
+        </footer>
+    </div>
+
+    <script src="appGame.js"></script>
+</body>
+</html>
