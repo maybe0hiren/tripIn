@@ -582,3 +582,300 @@ body {
   font-size: 14px;
   color: gray;
 }
+
+
+/* Fixed AI button */
+.fixed-circle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #4a90e2, #ff884d);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  transition: background-color 0.3s ease;
+}
+
+.fixed-circle-btn:hover,
+.fixed-circle-btn:focus {
+  background: linear-gradient(135deg, #3a78c9, #ff6e18);
+  outline: none;
+}
+
+/* Chatbot popup */
+.chatbot-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  max-height: 420px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+  font-family: Arial, sans-serif;
+}
+
+/* Header of chatbot */
+.chatbot-popup-header {
+  background: linear-gradient(90deg, #4a90e2, #ff884d);
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-chat-popup {
+  cursor: pointer;
+  user-select: none;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.close-chat-popup:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Messages container */
+.chatbot-popup-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  background: #f9f9f9;
+}
+
+/* Message styling */
+.chat-message {
+  margin-bottom: 8px;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+.user-msg {
+  text-align: right;
+  margin-left: auto;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.bot-msg {
+  text-align: left;
+  font-style: italic;
+  color: #444;
+}
+
+/* Input section */
+.chatbot-popup-input {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+.chatbot-popup-input input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.chatbot-popup-input button {
+  background: #4a90e2;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chatbot-popup-input button:hover,
+.chatbot-popup-input button:focus {
+  background: #3a78c9;
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -- Your existing styles below this -- */
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #2563eb;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #ff884d;
+  outline: none;
+}
+
+/* Hero Section styling */
+
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 32px 80px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-text h1 {
+  font-size: 3.25rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+.hero-text h1 span {
+  color: #ff884d;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-buttons button {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  margin: 0 12px;
+  min-width: 140px;
+  transition: all 0.4s ease;
+}
+
+.btn-left {
+  background: #ff884d;
+  color: white;
+}
+
+.btn-left:hover,
+.btn-left:focus {
+  background: #e6733a;
+  outline: none;
+}
+
+.btn-outline-left {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline-left:hover,
+.btn-outline-left:focus {
+  background: white;
+  color: #ff884d;
+  outline: none;
+}
+
+/* Search box and popular tags */
+.search-box {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.search-box input[type="text"],
+.search-box input[type="date"],
+.search-box input[type="number"] {
+  border: none;
+  padding: 12px;
+  border-radius: 24px;
+  max-width: 200px;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-box button:hover,
+.search-box button:focus {
+  background: #1a4db7;
+  outline: none;
+}
+
+.popular-tags {
+  margin-top: 24px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ff884d;
+}
+
+.popular-tags span {
+  margin: 0 8px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.popular-tags span:hover {
+  color: #2563eb;
+}
+
+/* Add your other existing styles below similarly */
